@@ -2,7 +2,7 @@ import requests
 import yaml
 
 # 原始订阅链接（你要换成你自己的）
-source_url = 'https://你的订阅链接/clash.yaml'
+source_url = 'https://sakuracat1203.xn--3iq226gfdb94q.com/api/v1/client/subscribe?token=89f3d86f2e045f6cdd2df8a3d8044529'
 
 # 自定义规则文件路径
 custom_rules_path = 'custom_rules.yaml'

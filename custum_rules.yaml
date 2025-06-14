@@ -1,0 +1,4 @@
+rules:
+  - DOMAIN-KEYWORD,douyin,DIRECT
+  - DOMAIN-SUFFIX,bilibili.com,PROXY
+  - DOMAIN-SUFFIX,example.com,REJECT

@@ -2,33 +2,27 @@ name: Update Clash Config
 
 on:
   schedule:
-    - cron: '30 4 * * *'
-  workflow_dispatch:
+    - cron: '0 */6 * * *'  # 每6小时自动运行一次
+  workflow_dispatch:       # 可手动运行
+  push:                    # 每次 push 也会触发
 
 jobs:
-  update-config:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: 拉取代码
-        uses: actions/checkout@v3
-
-      - name: 安装 Python
+      - uses: actions/checkout@v3
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
-
-      - name: 安装依赖
-        run: pip install pyyaml requests
-
-      - name: 执行更新脚本
+      - name: Install PyYAML
+        run: pip install pyyaml
+      - name: Run script
         run: python update.py
-
-      - name: 提交更新
+      - name: Commit and push changes
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add sakuracat_combined.yaml
-          git commit -m "自动更新配置文件" || echo "No changes"
-          git pull --rebase
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add sakuracat.yaml
+          git commit -m "Auto update config" || echo "No changes"
           git push

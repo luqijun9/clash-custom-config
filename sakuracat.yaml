@@ -1751,7 +1751,6 @@ proxy-groups:
   type: select
 rules:
 - DOMAIN-KEYWORD,douyin,REJECT
-- DOMAIN-SUFFIX,bilibili.com,PROXY
 - DOMAIN-SUFFIX,example.com,REJECT
 - DOMAIN-SUFFIX,local,🎯 全球直连
 - IP-CIDR,192.168.0.0/16,🎯 全球直连,no-resolve

@@ -1,3 +1,4 @@
+# subscription-userinfo: upload=0; download=1; total=1;
 allow-lan: true
 external-controller: :9090
 log-level: info
